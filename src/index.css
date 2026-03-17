@@ -1,3 +1,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "@fontsource/poppins/400.css"; /* normal */
+@import "@fontsource/poppins/700.css"; /* bold */
