@@ -1,6 +1,6 @@
 import { ongRepository } from "@/repositories/ong-repository";
 import { DatabaseError, EntityNotFound } from "@/types/custom-errors";
-import type { OngRequest } from "@/types/ong-types";
+import type { OngQueryParams, OngRequest } from "@/types/ong-types";
 
 export const ongService = {
 	getOngById: async (id: string) => {
@@ -23,5 +23,8 @@ export const ongService = {
 			throw new DatabaseError("Erro ao atualizar ong");
 		}
 		return result[0];
+	},
+	getOngs: async (params: OngQueryParams) => {
+		return ongRepository.getOngs(params);
 	},
 };
