@@ -33,11 +33,10 @@ const dadosTestPets = [
         nome:'Bob',
         localizacao:'São Paulo - SP'    
     },
-    
 ]
 
 const PreviewPetList =  () => {
-const [listaPets, setListaPets] = React.useState('')
+const [listaPets, setListaPets] = React.useState([])
 // falta o hook useNavigate do React router dom para navegação
 
 React.useEffect(()=>{
@@ -60,7 +59,7 @@ React.useEffect(()=>{
                 max-xl:grid-cols-[244px_244px_244px] max-md:grid-cols-[244px_244px]
                 max-sm:grid-cols-[244px]
                 gap-12 items-center justify-items-center">
-                    {listaPets.length && listaPets.map((pet)=>
+                    {listaPets.length > 0 && listaPets.map((pet)=>
                         <CardPet key={pet.id}
                         img={pet.img}
                         nome={pet.nome}
@@ -71,13 +70,13 @@ React.useEffect(()=>{
                 </ul>
             </div>        
             
-            <a className="block mb-7 px-5 py-2 bg-secondary 
+            {/* button deve ser substituido por <Link to="/rota">Ver todos </Link> do React Router Dom*/}
+            <button className="block mb-7 px-5 py-2 bg-secondary 
             text-white font-poppins font-medium rounded-3xl 
-            shadow-[3px_4px_4px_0px_rgba(0,0,0,0.25)]" href="#" 
-            onClick={(e)=>{e.preventDefault(); /**aqui vem o navigate('') com o componente para onde vai */}}
+            shadow-[3px_4px_4px_0px_rgba(0,0,0,0.25)] cursor-pointer" 
             >
                 Ver todos
-            </a>
+            </button>
         </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import "./App.css";
-import PreviewPetList from './components/PreviewPetList'
+import PreviewPetList from "./components/PreviewPetList";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
