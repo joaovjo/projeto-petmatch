@@ -3,7 +3,7 @@ export type OngRequest = {
 	razaoSocial: string;
 	nomeFantasia: string;
 	telefone: string;
-	whatsapp: string;
+	whatsapp?: string;
 	email: string;
 	site?: string;
 	instagram: string;

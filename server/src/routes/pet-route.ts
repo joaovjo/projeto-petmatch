@@ -16,9 +16,9 @@ const queryParamsParse = {
 	nomeOng: t.Optional(t.String()),
 };
 const bodyParse = {
-	nome: t.String(),
+	nome: t.String({ maxLength: 255 }),
 	especie: t.Union(especieParse),
-	raca: t.String(),
+	raca: t.String({ maxLength: 100 }),
 	sexo: t.Union(sexoParse),
 	porte: t.Union(porteParse),
 	dataNascimento: t.Date(),
