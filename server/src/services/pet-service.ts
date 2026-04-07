@@ -23,12 +23,13 @@ export const petService = {
 		if (ongResult.length === 0) {
 			throw new EntityNotFound("Nenhuma ONG encontrada para o usuário atual");
 		}
+		let result: Awaited<ReturnType<typeof petRepository.createPet>>;
 		try {
-			const result = await petRepository.createPet(request, ongResult[0].ongId);
-			return result[0];
-		} catch (error) {
+			result = await petRepository.createPet(request, ongResult[0].ongId);
+		} catch {
 			throw new DatabaseError("Erro inesperado ao cadastrar pet");
 		}
+		return result[0];
 	},
 	updatePet: async (
 		id: string,
@@ -48,12 +49,16 @@ export const petService = {
 				"Pet informado não pertence à ONG do usuário atual",
 			);
 		}
+		let updateResult: Awaited<ReturnType<typeof petRepository.updatePet>>;
 		try {
-			const updateResult = await petRepository.updatePet(id, request);
-			return updateResult[0];
-		} catch (error) {
+			updateResult = await petRepository.updatePet(id, request);
+		} catch {
 			throw new DatabaseError("Erro inesperado ao atualizar pet");
 		}
+		if (updateResult.length === 0) {
+			throw new EntityNotFound("Pet não encontrado");
+		}
+		return updateResult[0];
 	},
 	deletePet: async (id: string, userId: string) => {
 		const ongResult = await ongRepository.getOngAndUserIds(userId);

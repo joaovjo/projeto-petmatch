@@ -18,7 +18,7 @@ export const ongService = {
 		try {
 			const result = await ongRepository.createOng(request, userId);
 			return result[0];
-		} catch (error) {
+		} catch {
 			throw new DatabaseError("Erro inesperado ao criar ONG");
 		}
 	},
@@ -34,12 +34,16 @@ export const ongService = {
 		if (ongResult[0].ongId !== ongId) {
 			throw new ForbiddenError("ONG informada não pertence ao usuário atual");
 		}
+		let updateResult: Awaited<ReturnType<typeof ongRepository.updateOng>>;
 		try {
-			const updateResult = await ongRepository.updateOng(userId, request);
-			return updateResult[0];
-		} catch (error) {
+			updateResult = await ongRepository.updateOng(ongId, request);
+		} catch {
 			throw new DatabaseError("Erro inesperado ao atualizar ONG");
 		}
+		if (updateResult.length === 0) {
+			throw new EntityNotFound("Ong não encontrada");
+		}
+		return updateResult[0];
 	},
 	getOngs: async (params: OngQueryParams) => {
 		return ongRepository.getOngs(params);
