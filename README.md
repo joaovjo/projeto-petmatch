@@ -207,7 +207,7 @@ git push origin feature/nome-da-feature
 
 ## Contribuidores ✨
 
-Nosso obrigado vai para essas pessoas incriveis:
+Nosso obrigado vai para essas pessoas incríveis:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
