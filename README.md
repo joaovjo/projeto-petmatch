@@ -82,6 +82,8 @@ cd projeto-petmatch
 cd server
 bun install
 docker compose up -d
+bun db:migrate
+bun db:seed
 bun dev
 ```
 
@@ -130,7 +132,7 @@ docker compose down -v
 
 - [ ] Cadastro e autenticação completos no frontend
 - [ ] Tela de detalhes de pet com contato rápido da ONG
-- [ ] Filtros avançados por cidade/porte/especie
+- [ ] Filtros avançados por cidade/porte/espécie
 - [ ] Dashboard administrativo para ONGs
 - [ ] Testes automatizados para fluxos principais
 
@@ -205,7 +207,7 @@ git push origin feature/nome-da-feature
 
 ## Contribuidores ✨
 
-Nosso obrigado vai para essas pessoas incriveis:
+Nosso obrigado vai para essas pessoas incríveis:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -228,4 +230,4 @@ Nosso obrigado vai para essas pessoas incriveis:
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-Este projeto segue a especificacao all-contributors.
+Este projeto segue a especificação all-contributors.
