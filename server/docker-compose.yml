@@ -1,0 +1,12 @@
+services:
+  database:
+    image: postgres:alpine
+    container_name: petmatch_database
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=db_petmatch
+    ports:
+      - "5432:5432"
+#    volumes:
+#      - ./petmatch_schema.sql:/docker-entrypoint-initdb.d/init.sql

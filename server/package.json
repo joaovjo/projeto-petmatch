@@ -1,0 +1,41 @@
+{
+	"name": "elysia",
+	"version": "1.0.50",
+	"scripts": {
+		"dev": "bun --bun --watch src/index.ts",
+		"build": "bun --bun src/index.ts",
+		"test": "bun --bun test",
+		"test:unit": "bun --bun test tests/unit",
+		"test:integration": "bun --bun test tests/integration",
+		"test:watch": "bun --bun test --watch",
+		"test:coverage": "bun --bun test --coverage",
+		"lint": "bun --bun biome check",
+		"lint:fix": "bun --bun biome check --write",
+		"lint:fix:unsafe": "bun --bun biome check --write --unsafe",
+		"format": "bun --bun biome format --write",
+		"db:generate": "bun --bun drizzle-kit generate",
+		"db:generate:client": "bun --bun drizzle-kit generate && drizzle-kit up",
+		"db:migrate": "bun --bun drizzle-kit migrate",
+		"db:studio": "bun --bun drizzle-kit studio",
+		"db:seed": "bun --bun run src/database/seed.ts",
+		"db:push": "bun --bun drizzle-kit push",
+		"auth:generate": "bunx --bun auth@latest generate"
+	},
+	"dependencies": {
+		"@better-auth/drizzle-adapter": "^1.5.5",
+		"@elysiajs/openapi": "^1.4.14",
+		"better-auth": "^1.5.5",
+		"drizzle-orm": "^0.45.1",
+		"elysia": "latest"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.7",
+		"@types/bun": "^1.3.10",
+		"bun-types": "latest",
+		"drizzle-kit": "^0.31.9",
+		"postgres": "^3.4.9",
+		"tsx": "^4.21.0",
+		"typescript": "^5.9.3"
+	},
+	"module": "src/index.js"
+}
