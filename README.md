@@ -229,9 +229,3 @@ Nosso obrigado vai para essas pessoas incriveis:
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 Este projeto segue a especificacao all-contributors.
-## Endpoints
-Os endpoints estão disponíveis na interface gráfica da OpenApi, disponível em `http://localhost:3000/openapi` após a inicialização do servidor.
-
-OBS: apenas estes endpoints do BetterAuth foram testados:
-- `POST http://localhost:3000/api/auth/sign-up/email`: cadastrar usuário
-- `POST http://localhost:3000/api/auth/sign-in/email`: login de usuário
